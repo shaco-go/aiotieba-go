@@ -1,0 +1,8 @@
+// tbclient.Voice
+syntax = "proto3";
+option go_package = ".;protobuf";
+
+message Voice {
+    int32 during_time = 2;
+    string voice_md5 = 3;
+}

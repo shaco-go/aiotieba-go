@@ -1,0 +1,18 @@
+// protobuf.CommitPersonalMsg.CommitPersonalMsgResIdl
+syntax = "proto3";
+option go_package = ".;protobuf";
+
+import "Error.proto";
+
+message CommitPersonalMsgResIdl {
+    Error error = 1;
+    message DataRes {
+        int64 msgId = 1;
+        message BlockInfo {
+            int32 blockErrno = 1;
+            string blockErrmsg = 2;
+        }
+        BlockInfo blockInfo = 6;
+    }
+    DataRes data = 2;
+}

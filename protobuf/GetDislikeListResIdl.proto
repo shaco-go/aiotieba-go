@@ -1,0 +1,16 @@
+// tbclient.GetDislikeList.GetDislikeListResIdl
+syntax = "proto3";
+option go_package = ".;protobuf";
+
+import "Error.proto";
+import "ForumList.proto";
+
+message GetDislikeListResIdl {
+    Error error = 1;
+    message DataRes {
+        repeated ForumList forum_list = 1;
+        int32 has_more = 2;
+        int32 cur_page = 3;
+    }
+    DataRes data = 2;
+}

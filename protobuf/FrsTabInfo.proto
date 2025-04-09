@@ -1,0 +1,8 @@
+// tbclient.FrsTabInfo
+syntax = "proto3";
+option go_package = ".;protobuf";
+
+message FrsTabInfo {
+    int32 tab_id = 1;
+    string tab_name = 3;
+}

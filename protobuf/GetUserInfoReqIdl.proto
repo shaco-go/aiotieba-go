@@ -1,0 +1,10 @@
+// tbclient.GetUserInfo.GetUserInfoReqIdl
+syntax = "proto3";
+option go_package = ".;protobuf";
+
+message GetUserInfoReqIdl {
+    message DataReq {
+        int64 user_id = 2;
+    }
+    DataReq data = 1;
+}

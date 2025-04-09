@@ -1,0 +1,13 @@
+// tbclient.ReplyMe.ReplyMeReqIdl
+syntax = "proto3";
+option go_package = ".;protobuf";
+
+import "CommonReq.proto";
+
+message ReplyMeReqIdl {
+    message DataReq {
+        string pn = 1;
+        CommonReq common = 3;
+    }
+    DataReq data = 1;
+}

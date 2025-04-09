@@ -1,0 +1,9 @@
+// protobuf.CommitReceivedPmsg.CommitReceivedPmsgResIdl
+syntax = "proto3";
+option go_package = ".;protobuf";
+
+import "Error.proto";
+
+message CommitReceivedPmsgResIdl {
+    Error error = 1;
+}

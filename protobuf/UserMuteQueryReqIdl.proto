@@ -1,0 +1,14 @@
+// tbclient.UserMuteQuery.UserMuteQueryReqIdl
+syntax = "proto3";
+option go_package = ".;protobuf";
+
+import "CommonReq.proto";
+
+message UserMuteQueryReqIdl {
+    message DataReq {
+        CommonReq common = 2;
+        uint32 pn = 4;
+        uint32 rn = 5;
+    }
+    DataReq data = 1;
+}
