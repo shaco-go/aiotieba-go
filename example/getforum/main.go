@@ -6,6 +6,6 @@ import (
 )
 
 func main() {
-	forum, err := aiotieba_go.GetForum("无畏契约")
+	forum, err := aiotieba_go.GetForum("孙笑川")
 	fmt.Println(forum, err)
 }
