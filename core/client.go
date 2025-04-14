@@ -3,6 +3,7 @@ package core
 import (
 	"bytes"
 	"context"
+	"fmt"
 	"github.com/pkg/errors"
 	"github.com/tidwall/gjson"
 	"golang.org/x/time/rate"
@@ -59,6 +60,9 @@ func PackProtoR(url string, data []byte, resp proto.Message) error {
 		Post(url)
 	if err != nil {
 		return errors.Wrap(err, "")
+	}
+	if body.StatusCode() != http.StatusOK {
+		return errors.New(fmt.Sprintf("http code err:%s [%d]", body.String(), body.StatusCode()))
 	}
 	err = proto.Unmarshal(body.Bytes(), resp)
 	if err != nil {
