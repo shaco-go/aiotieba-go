@@ -10,7 +10,7 @@ func main() {
 	dom, err := aiotieba_go.GetThreads(&protobuf.FrsPageReqIdl{
 		Data: &protobuf.FrsPageReqIdl_DataReq{
 			Pn:       1,
-			Kw:       "永劫无间",
+			Kw:       "孙笑川",
 			SortType: 0,
 		},
 	})
