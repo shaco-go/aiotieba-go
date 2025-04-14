@@ -7,9 +7,11 @@ import (
 	"github.com/tidwall/gjson"
 	"golang.org/x/time/rate"
 	"google.golang.org/protobuf/proto"
+	"net/http"
 	"net/url"
 	"resty.dev/v3"
 	"sync"
+	"time"
 )
 
 var client *resty.Client
@@ -33,7 +35,15 @@ var appHeaders = map[string]string{
 
 func GetInstance() *resty.Client {
 	once.Do(func() {
-		client = resty.New()
+		client = resty.New().SetRetryCount(3).
+			SetRetryWaitTime(time.Second).
+			SetRetryMaxWaitTime(time.Second).
+			AddRetryConditions(func(response *resty.Response, err error) bool {
+				if response.StatusCode() == http.StatusTooManyRequests {
+					return true
+				}
+				return false
+			})
 	})
 	return client
 }
