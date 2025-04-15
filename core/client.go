@@ -17,7 +17,7 @@ import (
 
 var client *resty.Client
 var once sync.Once
-var limiter = rate.NewLimiter(30, 30)
+var limiter = rate.NewLimiter(15, 15)
 
 var appProtoHeaders = map[string]string{
 	"Accept-Encoding": "gzip",
